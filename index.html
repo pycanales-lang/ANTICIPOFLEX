@@ -1,275 +1,299 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8QS0FFX4MB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-8QS0FFX4MB');
-</script>
-
 <meta charset="UTF-8">
-<title>ENTRY HOME | Competencia Comercial 2026</title>
+<title>Anticipo Flexible | Regiones Este y Norte</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, #1e3a8a, #2563eb);
-        margin: 0;
-        padding: 20px;
-        -webkit-user-select: none;
-        user-select: none;
-    }
+:root{
+    --primary:#0f172a;
+    --secondary:#2563eb;
+    --accent:#f59e0b;
+    --success:#10b981;
+    --danger:#ef4444;
+    --bg:#f8fafc;
+}
 
-    .container {
-        max-width: 500px;
-        background: #ffffff;
-        margin: auto;
-        padding: 28px;
-        border-radius: 12px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-        position: relative;
-        overflow: hidden;
-    }
+body{
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg,#020617,#1e293b);
+    margin:0;
+    padding:20px;
+}
 
-    /* BARRA DE TIEMPO ESTILO PRO */
-    .timer-section {
-        background: #f1f5f9;
-        border-radius: 12px;
-        padding: 15px;
-        margin-bottom: 20px;
-        text-align: center;
-        border: 1px solid #e2e8f0;
-    }
+.container{
+    max-width:620px;
+    background:#fff;
+    margin:auto;
+    padding:28px;
+    border-radius:16px;
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+    position:relative;
+    overflow:hidden;
+    animation:fadeIn .6s ease;
+}
 
-    .timer-title {
-        font-size: 11px;
-        font-weight: bold;
-        color: #1e3a8a;
-        margin-bottom: 8px;
-        text-transform: uppercase;
-    }
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(20px)}
+    to{opacity:1;transform:translateY(0)}
+}
 
-    .progress-container {
-        background: #e2e8f0;
-        border-radius: 10px;
-        height: 10px;
-        overflow: hidden;
-        margin: 5px 0 10px 0;
-    }
+.watermark{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(-25deg);
+    font-size:42px;
+    color:rgba(0,0,0,.04);
+    white-space:nowrap;
+    pointer-events:none;
+}
 
-    .progress-bar {
-        height: 100%;
-        background: linear-gradient(90deg, #2563eb, #10b981);
-        width: 0%;
-        transition: width 1s ease;
-    }
+/* HEADER */
+.badge{
+    background:var(--accent);
+    color:#1e293b;
+    font-weight:700;
+    font-size:13px;
+    padding:6px 14px;
+    border-radius:999px;
+    display:inline-block;
+    margin-bottom:10px;
+}
 
-    .countdown {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-    }
+h1{
+    margin:0;
+    text-align:center;
+    color:var(--primary);
+    font-size:26px;
+}
 
-    .count-item { font-size: 16px; font-weight: bold; color: #1e3a8a; }
-    .count-label { font-size: 9px; color: #64748b; display: block; text-transform: uppercase; }
+.subtitle{
+    text-align:center;
+    font-size:14px;
+    color:#475569;
+    margin:6px 0 20px;
+}
 
-    /* Marca de agua */
-    .watermark {
-        position: absolute;
-        top: 50%; left: 50%;
-        transform: translate(-50%, -50%) rotate(-30deg);
-        font-size: 40px;
-        color: rgba(0,0,0,0.05);
-        white-space: nowrap;
-        pointer-events: none;
-    }
+/* TIMER */
+.timer{
+    background:var(--bg);
+    border-radius:14px;
+    padding:16px;
+    border:1px solid #e2e8f0;
+    margin-bottom:25px;
+}
 
-    h1 {
-        color: #1e3a8a;
-        margin-top: 0;
-        font-size: 28px;
-        text-align: center;
-    }
+.timer-title{
+    text-align:center;
+    font-size:12px;
+    font-weight:700;
+    color:var(--secondary);
+    letter-spacing:.5px;
+    margin-bottom:8px;
+}
 
-    .tag {
-        display: block;
-        background: #fbbf24;
-        color: #1e3a8a;
-        padding: 6px 12px;
-        border-radius: 20px;
-        font-weight: bold;
-        font-size: 13px;
-        margin: 0 auto 15px auto;
-        width: fit-content;
-        text-align: center;
-    }
+.progress{
+    height:10px;
+    background:#e5e7eb;
+    border-radius:10px;
+    overflow:hidden;
+}
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
-        font-size: 14px;
-    }
+.progress span{
+    display:block;
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,var(--secondary),var(--success));
+    transition:width 1s ease, background .5s;
+}
 
-    th {
-        background: #f1f5f9;
-        color: #1e3a8a;
-        padding: 12px;
-        text-align: left;
-        border-bottom: 2px solid #cbd5e1;
-    }
+.time{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin-top:10px;
+}
 
-    td { padding: 12px; border-bottom: 1px solid #f1f5f9; }
+.time div{
+    text-align:center;
+    font-weight:700;
+    color:var(--primary);
+}
 
-    .count-badge { font-weight: bold; color: #2563eb; font-size: 16px; }
-    .qty-badge { font-weight: bold; color: #059669; text-align: center; display: block; }
-    .prize-title { font-weight: bold; color: #334155; }
-    .prize-sub { font-size: 11px; color: #64748b; }
+.time small{
+    display:block;
+    font-size:9px;
+    color:#64748b;
+    text-transform:uppercase;
+}
 
-    .criterios-box {
-        background: #f8fafc;
-        padding: 15px;
-        border-radius: 8px;
-        border-left: 4px solid #fbbf24;
-        margin-top: 20px;
-    }
+/* SECTIONS */
+.section{
+    margin-top:25px;
+}
 
-    .criterios-box h2 { font-size: 16px; color: #1e3a8a; margin-top: 0; }
-    ul, ol { padding-left: 20px; font-size: 13px; line-height: 1.5; color: #334155; }
+.section-title{
+    font-size:15px;
+    font-weight:800;
+    color:var(--primary);
+    margin-bottom:8px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
 
-    .footer {
-        margin-top: 25px;
-        font-size: 11px;
-        color: #94a3b8;
-        text-align: center;
-    }
+table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13px;
+}
+
+th{
+    background:#f1f5f9;
+    color:#334155;
+    padding:10px;
+    text-align:left;
+    border-bottom:2px solid #cbd5e1;
+}
+
+td{
+    padding:10px;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.price{font-weight:700;color:#0f172a}
+.flex{font-weight:800;color:var(--secondary)}
+
+/* INFO BOX */
+.info{
+    background:#f8fafc;
+    border-left:4px solid var(--accent);
+    padding:14px;
+    border-radius:10px;
+    margin-top:25px;
+    font-size:12px;
+    color:#334155;
+}
+
+.info ul{
+    padding-left:18px;
+    margin:6px 0 0;
+}
+
+/* FOOTER */
+.footer{
+    text-align:center;
+    font-size:11px;
+    color:#94a3b8;
+    margin-top:25px;
+}
 </style>
 </head>
+
 <body>
-  
 <div class="container">
-    <div class="watermark">USO INTERNO • CANALES</div>
+<div class="watermark">USO INTERNO • CANALES</div>
 
-    <span class="tag">COMPETENCIA ENERO 2026</span>
+<div style="text-align:center">
+<span class="badge">ANTICIPO FLEXIBLE</span>
+<h1>Región Este y Norte</h1>
+<div class="subtitle">Vigencia: <b>15 al 21 de Enero</b></div>
+</div>
 
-    <h1>ENTRY HOME</h1>
+<!-- TIMER -->
+<div class="timer">
+<div id="status" class="timer-title">Cargando vigencia...</div>
+<div class="progress"><span id="bar"></span></div>
+<div class="time">
+<div><span id="d">00</span><small>Días</small></div>
+<div><span id="h">00</span><small>Horas</small></div>
+<div><span id="m">00</span><small>Min</small></div>
+</div>
+</div>
 
-    <div class="timer-section">
-        <div id="timer-status" class="timer-title">Cargando competencia...</div>
-        <div class="progress-container">
-            <div id="p-bar" class="progress-bar"></div>
-        </div>
-        <div class="countdown">
-            <div class="count-item"><span id="days">00</span><span class="count-label">Días</span></div>
-            <div class="count-item"><span id="hours">00</span><span class="count-label">Horas</span></div>
-            <div class="count-item"><span id="mins">00</span><span class="count-label">Min</span></div>
-        </div>
-    </div>
+<!-- SOLO INTERNET -->
+<div class="section">
+<div class="section-title">🌐 Solo Internet</div>
+<table>
+<tr><th>Plan</th><th>Precio</th><th>Anticipo Flex</th></tr>
+<tr><td>Táctico 100 Megas</td><td class="price">Gs. 100.000</td><td class="flex">Gs. 50.000</td></tr>
+<tr><td>100 Megas</td><td class="price">Gs. 120.000</td><td class="flex">Gs. 60.000</td></tr>
+<tr><td>200 Megas + Disney</td><td class="price">Gs. 170.000</td><td class="flex">Gs. 80.000</td></tr>
+<tr><td>300 Megas + Disney</td><td class="price">Gs. 220.000</td><td class="flex">Gs. 105.000</td></tr>
+<tr><td>400 Megas + Disney</td><td class="price">Gs. 280.000</td><td class="flex">Gs. 135.000</td></tr>
+<tr><td>600 Megas + Disney</td><td class="price">Gs. 310.000</td><td class="flex">Gs. 150.000</td></tr>
+</table>
+</div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Ganadores</th>
-                <th>Premio</th>
-                <th>QTY</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="count-badge">12</td>
-                <td><div class="prize-title">Speaker GO 4</div><div class="prize-sub">JBL</div></td>
-                <td class="qty-badge">7</td>
-            </tr>
-            <tr>
-                <td class="count-badge">8</td>
-                <td><div class="prize-title">Mochila Tigo</div><div class="prize-sub">Tigo</div></td>
-                <td class="qty-badge">6</td>
-            </tr>
-            <tr>
-                <td class="count-badge">16</td>
-                <td><div class="prize-title">Vale Super Gs. 200.000</div><div class="prize-sub">Supermercados</div></td>
-                <td class="qty-badge">5</td>
-            </tr>
-            <tr>
-                <td class="count-badge">16</td>
-                <td><div class="prize-title">Hoppy Azul</div><div class="prize-sub">BUBBA</div></td>
-                <td class="qty-badge">4</td>
-            </tr>
-        </tbody>
-    </table>
+<!-- DP -->
+<div class="section">
+<div class="section-title">📦 Dúo Pack</div>
+<table>
+<tr><th>Plan</th><th>Precio</th><th>Anticipo Flex</th></tr>
+<tr><td>Inicial</td><td class="price">Gs. 180.000</td><td class="flex">Gs. 90.000</td></tr>
+<tr><td>Familiar +200</td><td class="price">Gs. 205.000</td><td class="flex">Gs. 98.000</td></tr>
+<tr><td>Familiar +300</td><td class="price">Gs. 255.000</td><td class="flex">Gs. 127.500</td></tr>
+<tr><td>Familiar +400</td><td class="price">Gs. 305.000</td><td class="flex">Gs. 152.500</td></tr>
+<tr><td>Familiar +600</td><td class="price">Gs. 365.000</td><td class="flex">Gs. 182.500</td></tr>
+</table>
+</div>
 
-    <div class="criterios-box">
-        <h2>📌 Criterios de Calificación</h2>
-        <ul>
-            <li>Generadas: 01 al 14 de Enero 2026.</li>
-            <li>Instaladas: hasta el 17 de Enero 2026.</li>
-            <li>Cada premio tiene una cantidad de ganadores.</li>
-        </ul>
-        <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 10px 0;">
-        <h2 style="font-size: 14px;">⚖️ En caso de empate:</h2>
-        <ol>
-            <li>Mayor cantidad de generadas (01-14 Ene 2026).</li>
-            <li>Mayor cantidad de Pospago.</li>
-        </ol>
-    </div>
+<!-- TV -->
+<div class="section">
+<div class="section-title">📺 TV</div>
+<table>
+<tr><th>Plan</th><th>Precio</th><th>Anticipo Flex</th></tr>
+<tr><td>Inicial</td><td class="price">Gs. 119.000</td><td class="flex">N/A</td></tr>
+</table>
+</div>
 
-    <div class="footer">
-        © 2026 – CANALES | Información de uso exclusivo interno
-    </div>
+<!-- INFO -->
+<div class="info">
+<b>📌 Condiciones importantes</b>
+<ul>
+<li>Vigente únicamente para planes habilitados.</li>
+<li>La diferencia no cobrada como anticipo se incorpora en la primera factura.</li>
+</ul>
+</div>
+
+<div class="footer">© 2026 – CANALES | Comunicación interna</div>
 </div>
 
 <script>
-    // CONFIGURACIÓN DE FECHAS ENERO 2026
-    const startDate = new Date('2026-01-01T00:00:00').getTime();
-    const endDate = new Date('2026-01-14T23:59:59').getTime();
+const start=new Date('2026-01-15T00:00:00').getTime();
+const end=new Date('2026-01-21T23:59:59').getTime();
 
-    function updateTimer() {
-        const now = new Date().getTime();
-        const totalDuration = endDate - startDate;
-        const pBar = document.getElementById('p-bar');
-        const statusText = document.getElementById('timer-status');
-        
-        if (now < startDate) {
-            statusText.innerText = "LA COMPETENCIA INICIA EN:";
-            showTime(startDate - now);
-            pBar.style.width = "0%";
-        } else if (now > endDate) {
-            statusText.innerText = "COMPETENCIA FINALIZADA";
-            pBar.style.width = "100%";
-            pBar.style.background = "#ef4444";
-            document.getElementById('days').innerText = "00";
-            document.getElementById('hours').innerText = "00";
-            document.getElementById('mins').innerText = "00";
-        } else {
-            statusText.innerText = "TIEMPO PARA EL CIERRE:";
-            const remaining = endDate - now;
-            const progress = ((now - startDate) / totalDuration) * 100;
-            pBar.style.width = progress + "%";
-            
-            // Color rojo si quedan menos de 3 días
-            if (remaining < (3 * 24 * 60 * 60 * 1000)) {
-                pBar.style.background = "#ef4444";
-                statusText.style.color = "#ef4444";
-            }
-            showTime(remaining);
-        }
-    }
+function tick(){
+const now=Date.now();
+const bar=document.getElementById('bar');
+const status=document.getElementById('status');
 
-    function showTime(ms) {
-        document.getElementById('days').innerText = Math.floor(ms / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-        document.getElementById('hours').innerText = Math.floor((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-        document.getElementById('mins').innerText = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-    }
+if(now<start){
+status.innerText="INICIA EN:";
+show(start-now); bar.style.width="0%";
+}else if(now>end){
+status.innerText="PROMO FINALIZADA";
+bar.style.width="100%"; bar.style.background="#ef4444";
+show(0);
+}else{
+status.innerText="FINALIZA EN:";
+const total=end-start;
+const prog=((now-start)/total)*100;
+bar.style.width=prog+"%";
+show(end-now);
+}
+}
 
-    setInterval(updateTimer, 1000);
-    updateTimer();
+function show(ms){
+d.innerText=Math.floor(ms/86400000).toString().padStart(2,'0');
+h.innerText=Math.floor(ms%86400000/3600000).toString().padStart(2,'0');
+m.innerText=Math.floor(ms%3600000/60000).toString().padStart(2,'0');
+}
 
-    // Seguridad: Bloquear clic derecho
-    document.addEventListener('contextmenu', e => e.preventDefault());
+setInterval(tick,1000); tick();
+document.addEventListener('contextmenu',e=>e.preventDefault());
 </script>
-
 </body>
 </html>
